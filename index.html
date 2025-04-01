@@ -1,20 +1,133 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Site</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Site do Aluno Luís Avelis de Paula info 23</h1>
-    </header>
-    <div class="container">
-      <h2>Tarefas des_web:</h2>
-      <h2>ATV1: <a href="https://github.com/tenesio/html-des.-web" target="_blank">Ver Código</a></h2>
-      <h2>ATV2: <a href="https://github.com/tenesio/Portal-de-noticias" target="_blank">Ver Código</a></h2>
-      <h2>ATV3: <a href="https://exemplo.com" target="_blank">Ver Código</a></h2>
-  </div>
-</body>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página de Luís</title>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        >
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            .border {
+                border: 2px solid white;
+            }
+            body {
+                display: grid;
+                min-height: 100vh;
+                grid-template-rows: 100px 1fr 100px;
+                grid-template-columns: 170px 1fr 200px;
+                grid-template-areas:
+                    "topo topo topo"
+                    "menu conteudo conteudo"
+                    "menu conteudo conteudo";
+            }
+            header {
+                grid-area: topo;
+                background-color: gray;
+                font-size: 50px;
+                color: black;
+                text-align: center;
+                padding: 20px;
+                position: relative;
+            }
+            nav {
+                grid-area: menu;
+                background-color: gray;
+                text-align: center;
+                font-size: 25px;
+                padding: 10px;
+                transition: transform 0.3s ease;
+            }
+            .hidden {
+                transform: translateX(-100%);
+            }
+            main {
+                grid-area: conteudo;
+                background-color: aliceblue;
+                text-align: center;
+                font-size: 30px;
+                padding: 20px;
+            }
+            aside {
+                grid-area: info;
+                background-color: aliceblue;
+                padding: 10px;
+            }
+            footer {
+                grid-area: rodape;
+                background-color: aliceblue;
+                text-align: center;
+                padding: 10px;
+            }
+            .container {
+                margin-bottom: 10px;
+            }
+            .links a {
+                display: block;
+                font-size: 20px;
+                color: navy;
+                text-decoration: none;
+                margin: 5px 0;
+            }
+            .links a:hover {
+                text-decoration: underline;
+            }
+            .menu-button {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                font-size: 30px;
+                color: white;
+                cursor: pointer;
+                display: none;
+            }
+            @media screen and (max-width: 768px) {
+                nav {
+                    position: absolute;
+                    top: 100px;
+                    left: 0;
+                    width: 170px;
+                }
+                .menu-button {
+                    display: block;
+                }
+                .hidden {
+                    transform: translateX(-100%);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="border">
+            <div>Luís Avelis de Paula</div>
+            <span class="menu-button" onclick="toggleMenu()">&#9776;</span>
+        </header>
+        <nav class="border" id="menu">
+            <h1>Sobre</h1>
+        </nav>
+        <main class="border">     
+            <div class="container">
+                <i class="material-icons" style="font-size:30px; color:navy;">library_books</i>
+                <span>Links das atividades:</span>
+            </div>
+            <div class="links">
+                <a href="https://github.com/tenesio/html-des.-web">Atividade 1</a>
+                <a href="https://github.com/tenesio/Portal-de-noticias">Atividade 2</a>
+                <a href="#">Atividade 3</a>
+            </div>
+        </main>
+
+        <script>
+            function toggleMenu() {
+                var menu = document.getElementById('menu');
+                menu.classList.toggle('hidden');
+            }
+        </script>
+    </body>
 </html>
